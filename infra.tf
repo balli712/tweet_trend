@@ -6,7 +6,7 @@ resource "aws_instance" "demo-server" {
     ami = "ami-0e86e20dae9224db8"
     instance_type = "t2.micro"
     key_name = "devopskey_08"
-    //security_groups = [ "demo-sg" ]
+    ////security_groups = [ "demo-sg" ]
     vpc_security_group_ids = [aws_security_group.demo-sg.id]
     subnet_id = aws_subnet.dpp-public-subnet-01.id 
 for_each = toset(["jenkins-master", "build-slave", "ansible"])
@@ -102,3 +102,5 @@ resource "aws_route_table_association" "dpp-rta-public-subnet-02" {
   subnet_id = aws_subnet.dpp-public-subnet-02.id 
   route_table_id = aws_route_table.dpp-public-rt.id   
 }
+
+//End of code
